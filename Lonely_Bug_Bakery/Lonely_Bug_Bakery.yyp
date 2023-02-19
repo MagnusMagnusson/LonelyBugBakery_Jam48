@@ -17,6 +17,7 @@
     {"id":{"name":"scr_board","path":"scripts/scr_board/scr_board.yy",},"order":1,},
     {"id":{"name":"spr_wood","path":"sprites/spr_wood/spr_wood.yy",},"order":0,},
     {"id":{"name":"spr_board_bottom","path":"sprites/spr_board_bottom/spr_board_bottom.yy",},"order":4,},
+    {"id":{"name":"spr_stress","path":"sprites/spr_stress/spr_stress.yy",},"order":4,},
     {"id":{"name":"o_tile","path":"objects/o_tile/o_tile.yy",},"order":0,},
     {"id":{"name":"spr_ice","path":"sprites/spr_ice/spr_ice.yy",},"order":2,},
     {"id":{"name":"spr_honey","path":"sprites/spr_honey/spr_honey.yy",},"order":1,},

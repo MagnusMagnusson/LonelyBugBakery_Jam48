@@ -4,3 +4,6 @@ with(o_tile){
 with(o_tile){
 	draw_self();
 }
+
+draw_set_color(c_white);
+draw_text(0,0,++i);

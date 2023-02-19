@@ -1,6 +1,9 @@
-tile = tile_get_random();
-xx = 0;
+tile = TILE.ice;
+xx = 1;
 yy = 0;
+xoffset = 0;
+yoffset = 0;
+board = undefined;
 image_xscale = 0.5;
 image_yscale = 0.5;
 

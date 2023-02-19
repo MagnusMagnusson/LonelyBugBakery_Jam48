@@ -30,6 +30,6 @@ function tile_get_sprite(tile){
 		case TILE.grain: return spr_grain;
 		case TILE.honey: return spr_honey;
 		case TILE.ice: return spr_ice;
-		case TILE.stress: return spr_honey;
+		case TILE.stress: return spr_stress;
 	}
 }
