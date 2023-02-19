@@ -25,6 +25,7 @@
     {"id":{"name":"spr_board_bottom","path":"sprites/spr_board_bottom/spr_board_bottom.yy",},"order":4,},
     {"id":{"name":"spr_antastatia","path":"sprites/spr_antastatia/spr_antastatia.yy",},"order":0,},
     {"id":{"name":"o_actor","path":"objects/o_actor/o_actor.yy",},"order":1,},
+    {"id":{"name":"fnt_scene","path":"fonts/fnt_scene/fnt_scene.yy",},"order":0,},
     {"id":{"name":"spr_stress","path":"sprites/spr_stress/spr_stress.yy",},"order":4,},
     {"id":{"name":"o_tile","path":"objects/o_tile/o_tile.yy",},"order":0,},
     {"id":{"name":"spr_ice","path":"sprites/spr_ice/spr_ice.yy",},"order":2,},
@@ -48,12 +49,11 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_puzzle","path":"rooms/rm_puzzle/rm_puzzle.yy",},},
     {"roomId":{"name":"rm_intro","path":"rooms/rm_intro/rm_intro.yy",},},
+    {"roomId":{"name":"rm_puzzle","path":"rooms/rm_puzzle/rm_puzzle.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Puzzle","folderPath":"folders/Puzzle.yy","order":1,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"business","folderPath":"folders/business.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Puzzle/Sprites.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Puzzle/Rooms.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Puzzle/Objects.yy","order":3,},
@@ -67,6 +67,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Story/Objects.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialogue","folderPath":"folders/Story/Objects/Dialogue.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialouge Scripts","folderPath":"folders/Story/Objects/Dialogue/Dialouge Scripts.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Font","folderPath":"folders/Story/Font.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Bakery","folderPath":"folders/Bakery.yy","order":4,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
