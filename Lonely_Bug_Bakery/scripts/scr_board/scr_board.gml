@@ -52,14 +52,14 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 				instance_destroy(inst);
 					
 				with(o_tile){
-					motion_add(point_direction(_x, _y, x, y), (pow * pow * other.tSize) / point_distance(_x, _y, x, y));
+					motion_add(point_direction(_x, _y, x, y), (0.5 * pow * pow * other.tSize) / point_distance(_x, _y, x, y));
 					disableMovement = 10;
 				}
 			}
 			if(pow > 3){
-				o_board_wall_r.hspeed = pow*pow*pow;
-				o_board_wall_l.hspeed = -(pow*pow*pow);
-				o_board_wall_b.vspeed = pow*pow*pow;
+				o_board_wall_r.hspeed = pow*pow*2;
+				o_board_wall_l.hspeed = -(pow*pow*2);
+				o_board_wall_b.vspeed = pow*pow*2;
 				o_board_wall_b.hspeed = 0;
 			}
 			update();

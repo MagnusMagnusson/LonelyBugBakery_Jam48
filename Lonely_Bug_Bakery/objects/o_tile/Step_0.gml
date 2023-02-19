@@ -7,11 +7,11 @@ var b = is_undefined(board) ? {"h":0} : board;
 var yTarget = (yoffset + (b.h-1 ) * 128 ) - yy * sprite_height;
 
 if(xTarget != x){
-	hspeed -= (x - xTarget)/30
+	hspeed -= (x - xTarget)/40
 }
 
 if(yTarget != y){
-	vspeed -= (y - yTarget)/30
+	vspeed -= (y - yTarget)/40
 }
 
 hspeed *= 0.9;
