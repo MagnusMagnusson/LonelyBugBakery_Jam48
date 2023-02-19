@@ -1,7 +1,9 @@
 if(x != xstart){
-	hspeed += 0.1 * sign(xstart - x);
+	hspeed += (xstart - x) / 10;
+	hspeed *= 0.8;
 }
 
 if(y != ystart){
-	hspeed += 0.1 * sign(ystart - y)
+	vspeed += (ystart - y) / 10
+	vspeed *= 0.8;
 }

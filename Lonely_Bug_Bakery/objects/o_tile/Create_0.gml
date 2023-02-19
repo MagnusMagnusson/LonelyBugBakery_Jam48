@@ -13,3 +13,4 @@ set_tile = function(_tile){
 }
 
 set_tile(tile);
+disableMovement = 0;

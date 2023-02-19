@@ -13,7 +13,7 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		renderBoard[i] = array_create(h, undefined);
 	}
 	
-	static destroy = function(){
+	static deconstructor = function(){
 		ds_list_destroy(reserve);
 	}
 	
@@ -36,7 +36,35 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 	}
 	
 	static click = function(xx,yy){
-		
+		var cluster = getCluster(board[xx][yy], xx, yy);
+		var _x, _y;
+		_x = 0;
+		_y = 0;
+		var pow = array_length(cluster);
+		if(array_length(cluster) > 1){
+			for(var i = 0; i < array_length(cluster); i++){
+				cord = cluster[i];
+				var inst = renderBoard[cord.xx][cord.yy];
+				board[cord.xx][cord.yy] = TILE.none;
+				renderBoard[cord.xx][cord.yy] = undefined;
+				_x = getRealCords_x(cord.xx);
+				_y = getRealCords_y(cord.yy);
+				instance_destroy(inst);
+					
+				with(o_tile){
+					motion_add(point_direction(_x, _y, x, y), (pow * pow * other.tSize) / point_distance(_x, _y, x, y));
+					disableMovement = 10;
+				}
+			}
+			if(pow > 3){
+				o_board_wall_r.hspeed = pow*pow*pow;
+				o_board_wall_l.hspeed = -(pow*pow*pow);
+				o_board_wall_b.vspeed = pow*pow*pow;
+				o_board_wall_b.hspeed = 0;
+			}
+			update();
+		}
+		return false;
 	}
 	
 	static update = function(){
@@ -64,13 +92,13 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 						board[xx][yy] = newTile;
 						renderBoard[xx][yy] = inst;
 						show_debug_message("Created new inst " + string(xx) + " - " + string(yy))
-						yy = 0;
+						yy = -1;
 					}
 				} else {
 					if(board[xx][yy] == TILE.none && board[xx][yy + 1] != TILE.none){
 						moveTile(xx, yy + 1, xx, yy);
 						show_debug_message("Moved one down at" + string(xx) + " - " + string(yy))
-						yy = 0;
+						yy = -1;
 					}
 				}
 			}
@@ -81,20 +109,24 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		show_debug_message("fallCenter")
 		for(var xx = ceil(w / 2); xx < w - 1; xx++){
 			if(board[xx][0] == TILE.none && board[xx + 1][0]){
-				for(var yy = 0; yy < h; y++){
-					moveTile(xx + 1, yy, xx, yy);
+				for(var yy = 0; yy < h; yy++){
+					if(board[xx + 1, yy] != TILE.none){
+						moveTile(xx + 1, yy, xx, yy);
+					}
 				}
 				show_debug_message("Moved one left" + string(xx) + " - " + string(0))
-				xx = ceil(w / 2);
+				xx = ceil(w / 2)+1;
 			}
 		}
 		for(var xx = floor(w / 2); xx > 0; xx--){
 			if(board[xx][0] == TILE.none && board[xx - 1][0]){
-				for(var yy = 0; yy < h; y++){
-					moveTile(xx - 1, yy, xx, yy);
+				for(var yy = 0; yy < h; yy++){
+					if(board[xx - 1, yy] != TILE.none){
+						moveTile(xx - 1, yy, xx, yy);
+					}
 				}
 				show_debug_message("Moved one right" + string(xx) + " - " + string(0))
-				xx = floor(w / 2);
+				xx = floor(w / 2)-1;
 			}
 		}
 	}
@@ -106,5 +138,44 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		renderBoard[xPrev][yPrev] = undefined;
 		renderBoard[xNew][yNew].xx = xNew;
 		renderBoard[xNew][yNew].yy = yNew;
+	}
+
+	static getCluster = function(tileType, xx,yy, done = []){
+		for(var i = 0; i < array_length(done); i++){
+			if(done[i].xx == xx && done[i].yy == yy){
+				return done;
+			}
+		}
+		
+		array_push(done, {"xx" : xx,"yy" : yy});
+		if(xx > 0){
+			if(board[xx - 1][yy] == tileType){
+				getCluster(tileType, xx - 1, yy, done);
+			}
+		}
+		if(xx < w - 1){
+			if(board[xx + 1][yy] == tileType){
+				getCluster(tileType, xx + 1, yy, done);
+			}
+		}
+		if(yy > 0){
+			if(board[xx][yy - 1] == tileType){
+				getCluster(tileType, xx, yy - 1, done);
+			}
+		}
+		if(yy < h - 1){
+			if(board[xx][yy + 1] == tileType){
+				getCluster(tileType, xx, yy + 1, done);
+			}
+		}
+		return done;
+	}
+
+	static getRealCords_x = function(xx){
+		return xoffset + xx * tSize;
+	}
+		
+	static getRealCords_y = function(yy){
+		return (yoffset + (h - 1) * tSize) - yy * tSize;
 	}
 }
