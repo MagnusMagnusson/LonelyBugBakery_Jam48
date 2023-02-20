@@ -77,9 +77,10 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		fallDown();
 		fallCenter();
 		if(isWonBoard()){
-			show_message("WON!");
+			o_board.stop = true;
 		} 
 		else if(isDeadBoard()){
+			o_board.stop = true;
 			with(o_tile){
 				dead = true;
 				gravity = 1;

@@ -1,8 +1,10 @@
-money = 100;
-grain = 0;
-ice = 0;
-tea = 0;
-honey = 0;
+money = 50;
+grain = 5;
+ice = 5;
+tea = 5;
+honey = 5;
+
+randomize(); 
 
 sweetTeaPrice = 1 + teaCost + honeyCost; // tea + honey
 iceTeaPrice = 1 + iceCost + teaCost; // ice + tea
@@ -12,18 +14,21 @@ coldBreadPrice = 1 + iceCost + grainCost; // ice + grain
 honeyCakePrice = 1 + honeyCost + grainCost; // honey + grain
 
 sweetTea = 0; // tea + honey
-iceTea = 0; // ice + tea
+iceTea = 10; // ice + tea
 spiceCake = 0; // tea + grain
 honeyIce = 0; // ice + honey
 coldBread = 0; // ice + grain
 honeyCake = 0; // honey + grain
-
+day = 0;
+reputation = 20;
 
 
 if(instance_number(o_ctrl) > 1){
 	instance_destroy();
 }
 
+global.temp = NORMAL;
+global.weather = CLOUDY;
 function usage(tile){
 	switch(tile){
 		case TILE.grain : {
@@ -72,4 +77,9 @@ function canAddMore(product){
 			break;
 		}
 	}
+}
+
+finishPuzzle = function(){
+	q = overallQuality(o_board.board.quality, o_board.board.startCount, 5);
+	room_goto(rm_bakery_day);
 }

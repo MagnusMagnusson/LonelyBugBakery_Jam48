@@ -27,6 +27,17 @@ function tile_get_array(){
 	];
 }
 
+function tile_get_product(){
+	return [
+		PRODUCT.sweet_tea,
+		PRODUCT.ice_tea,
+		PRODUCT.spice_bread,
+		PRODUCT.honey_cake,
+		PRODUCT.honey_ice_cream,
+		PRODUCT.cold_bread,
+	];
+}
+
 
 
 function tile_get_random(){
@@ -48,7 +59,7 @@ function tile_get_sprite(tile){
 
 function product_get_sprite(product){
 	switch(product){
-		case PRODUCT.none: return undefined;
+		case PRODUCT.none: return spr_antastatia;
 		case PRODUCT.sweet_tea: return spr_sweet_tea;
 		case PRODUCT.cold_bread: return spr_cold_bun;
 		case PRODUCT.honey_ice_cream: return spr_ice_cream;
