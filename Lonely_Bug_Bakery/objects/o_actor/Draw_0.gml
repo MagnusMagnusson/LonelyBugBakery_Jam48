@@ -10,5 +10,4 @@ if(highlight){
 
 var b = 255 * blend;
 
-draw_text(x, y - 128, highlight);
 draw_sprite_ext(sprite_index, image_index, x, y, lerpX, lerpY, image_angle, make_color_rgb(b,b,b), image_alpha);

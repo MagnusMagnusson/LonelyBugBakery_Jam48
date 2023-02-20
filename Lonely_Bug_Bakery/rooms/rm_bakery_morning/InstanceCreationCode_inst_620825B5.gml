@@ -1,0 +1,1 @@
+text = "Bakery Management";
