@@ -1,4 +1,4 @@
-if(disableMovement > 0){
+if(dead || disableMovement > 0){
 	disableMovement--;
 	exit;
 }

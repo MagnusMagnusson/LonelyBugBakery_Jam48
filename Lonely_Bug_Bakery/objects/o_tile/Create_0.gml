@@ -15,3 +15,4 @@ set_tile = function(_tile){
 }
 
 set_tile(tile);
+dead = false;

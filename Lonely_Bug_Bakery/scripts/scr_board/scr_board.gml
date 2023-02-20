@@ -41,7 +41,7 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		_x = 0;
 		_y = 0;
 		var pow = array_length(cluster);
-		if(array_length(cluster) > 1){
+		if(pow > 1){
 			for(var i = 0; i < array_length(cluster); i++){
 				cord = cluster[i];
 				var inst = renderBoard[cord.xx][cord.yy];
@@ -70,6 +70,18 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 	static update = function(){
 		fallDown();
 		fallCenter();
+		if(isWonBoard()){
+			show_message("WON!");
+		} 
+		else if(isDeadBoard()){
+			with(o_tile){
+				dead = true;
+				gravity = 1;
+				vspeed = random(5);
+				hspeed = random_range(-3,3);
+				image_blend = c_gray;
+			}
+		}
 	}
 	
 	static fallDown = function(){		
@@ -177,5 +189,29 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		
 	static getRealCords_y = function(yy){
 		return (yoffset + (h - 1) * tSize) - yy * tSize;
+	}
+	
+	static isWonBoard = function(){
+		for(var i = 0; i < w; i++){
+			for(var j = 0; j < h; j++){
+				if(board[i][j] != TILE.none
+				&& board[i][j] != TILE.stress){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	static isDeadBoard = function(){
+		for(var i = 0; i < w; i++){
+			for(var j = 0; j < h; j++){
+				if(board[i][j] != TILE.none
+				&& array_length(getCluster(board[i][j], i, j)) > 1){
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 }
