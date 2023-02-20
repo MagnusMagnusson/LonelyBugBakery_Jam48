@@ -46,7 +46,7 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 			if(t != TILE.stress){
 				quality += 0.5 * (pow * pow - pow)
 			} else {
-				quality = floor(max(0,quality - 0.25 * (pow * pow - pow)));
+				quality = ceil(max(0,quality - 0.25 * pow * pow));
 			}
 			for(var i = 0; i < array_length(cluster); i++){
 				cord = cluster[i];

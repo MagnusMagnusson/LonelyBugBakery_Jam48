@@ -2,5 +2,6 @@ text = "Less Honey";
 
 
 action = function(){
-	o_store_manager.honeyToBuy = max(o_store_manager.honeyToBuy - 1, 0);
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	o_store_manager.honeyToBuy = max(o_store_manager.honeyToBuy - c, 0);
 }

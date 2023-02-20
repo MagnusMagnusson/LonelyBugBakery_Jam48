@@ -12,7 +12,9 @@ if(o_board.stop){
 	var i = instance_create_layer(random(room_width), -100, "layer_tiles", o_fallProduct);
 	var a = tile_get_product();
 	var tileType = a[irandom(array_length(a) - 1)];
-	while(map[$ tileType] == 0){
+	var xx = 100;
+	while(map[$ tileType] == 0 && xx > 100){
+		xx = xx-1; 
 		tileType = a[irandom(array_length(a) - 1)];
 	}
 	map[$ tileType] = map[$ tileType] - 1;

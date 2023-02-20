@@ -50,12 +50,16 @@ function triggerNextLine() {
 		moment.action();
 	}
 	if(is_undefined(moment.actor)){
-		show_debug_message("Undefined actor");
 		with(o_actor){
 			highlight = true;
 		}
 	} else{
-		show_debug_message("Defined actor");
+		if(moment.actor.object_index == o_ester_web){
+			audio_play_sound(snd_deep_wawa,2,false);
+		}
+		if(moment.actor.object_index == o_antastatia){
+			audio_play_sound(snd_female_wawa,2,false);
+		}
 		with(o_actor){
 			if(object_index == moment.actor){
 				highlight = true;

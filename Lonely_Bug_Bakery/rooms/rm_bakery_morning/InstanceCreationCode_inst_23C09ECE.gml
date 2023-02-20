@@ -1,7 +1,8 @@
 text = "More Ice-Tea"
 
 action = function(){
-	if(o_ctrl.canAddMore(PRODUCT.ice_tea)){
-		o_ctrl.iceTea++;
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	if(o_ctrl.canAddMore(PRODUCT.ice_tea, c)){
+		o_ctrl.iceTea+=c;
 	}
 }

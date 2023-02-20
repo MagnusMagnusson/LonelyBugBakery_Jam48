@@ -1,1 +1,1 @@
-text = "Buy Ingredients!";
+text = "Buy Ingredients! (hold shift to bulk buy)";

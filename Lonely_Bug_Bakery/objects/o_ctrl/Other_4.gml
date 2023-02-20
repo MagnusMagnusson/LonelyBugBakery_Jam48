@@ -65,6 +65,26 @@ if(room == rm_bakery_day){
 	}
 }
 
+if(room == rm_bakery_evening){
+	sweetTea = 0; // tea + honey
+	iceTea = 0; // ice + tea
+	spiceCake = 0; // tea + grain
+	honeyIce = 0; // ice + honey
+	coldBread = 0; // ice + grain
+	honeyCake = 0; // honey + grain
+	
+		
+	if(day == 30){
+		if(money >= 1000){
+			show_message("You paid off your debt, YOU WON!");
+			money -= 1000;
+		} else {
+			show_message("You didn't earn enough money. Tough luck! You lost.");
+			money -= 1000;
+		}
+	}
+}
+
 if(room == rm_bakery_morning || room == rm_bakery_day || room == rm_bakery_evening){
 	switch(global.weather){
 		case SUNNY : {

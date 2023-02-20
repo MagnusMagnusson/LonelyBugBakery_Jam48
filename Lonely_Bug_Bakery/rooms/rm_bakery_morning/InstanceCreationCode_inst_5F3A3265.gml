@@ -2,5 +2,6 @@ text = "Fewer Herbal Buns"
 
 
 action = function(){
-	o_ctrl.spiceCake = max(0, o_ctrl.spiceCake - 1);
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	o_ctrl.spiceCake = max(0, o_ctrl.spiceCake - c);
 }

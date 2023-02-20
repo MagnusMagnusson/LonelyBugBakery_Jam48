@@ -2,5 +2,6 @@ text = "Less Ice";
 
 
 action = function(){
-	o_store_manager.iceToBuy = max(o_store_manager.iceToBuy - 1, 0);
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	o_store_manager.iceToBuy = max(o_store_manager.iceToBuy - c, 0);
 }

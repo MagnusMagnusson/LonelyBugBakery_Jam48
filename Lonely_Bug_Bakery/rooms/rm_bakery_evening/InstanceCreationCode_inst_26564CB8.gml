@@ -1,5 +1,6 @@
 text = "Less Grain";
 
 action = function(){
-	o_store_manager.grainToBuy = max(o_store_manager.grainToBuy - 1, 0);
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	o_store_manager.grainToBuy = max(o_store_manager.grainToBuy - c, 0);
 }

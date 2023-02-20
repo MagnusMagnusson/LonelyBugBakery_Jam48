@@ -2,5 +2,6 @@ text = "Less Honey Slush"
 
 
 action = function(){
-	o_ctrl.honeyIce = max(0, o_ctrl.honeyIce - 1);
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	o_ctrl.honeyIce = max(0, o_ctrl.honeyIce - c);
 }

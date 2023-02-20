@@ -2,5 +2,6 @@ text = "Less Cold Bread"
 
 
 action = function(){
-	o_ctrl.coldBread = max(0, o_ctrl.coldBread - 1);
+	var c = keyboard_check(vk_shift) ? 10 : 1;
+	o_ctrl.coldBread = max(0, o_ctrl.coldBread - c);
 }

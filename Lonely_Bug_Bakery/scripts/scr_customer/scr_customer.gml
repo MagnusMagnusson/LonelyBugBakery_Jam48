@@ -24,22 +24,22 @@ enum PRODUCT {
 function convertedCost(product){
 	switch(product){
 		case PRODUCT.sweet_tea : {
-			return 1 + (honeyCost + teaCost);
+			return 2 + (honeyCost + teaCost);
 		}
 		case PRODUCT.ice_tea : {
-			return 1 + (iceCost + teaCost);
+			return 2 + (iceCost + teaCost);
 		}
 		case PRODUCT.spice_bread : {
-			return 1 + (grainCost + teaCost);
+			return 2 + (grainCost + teaCost);
 		}
 		case PRODUCT.honey_cake : {
-			return 1 + (grainCost + honeyCost);
+			return 2 + (grainCost + honeyCost);
 		}
 		case PRODUCT.honey_ice_cream : {
-			return 1 + (iceCost + honeyCost);
+			return 2 + (iceCost + honeyCost);
 		}
 		case PRODUCT.cold_bread : {
-			return 1 + (grainCost + iceCost);
+			return 2 + (grainCost + iceCost);
 		}
 	}
 }
