@@ -1,1 +1,1 @@
-text = "Bakery Management";
+text = "Buy Ingredients!";

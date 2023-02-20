@@ -7,6 +7,8 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 	board = array_create(w);
 	renderBoard = array_create(w);
 	reserve = ds_list_create();
+	quality = 0;
+	startCount = 0;
 	
 	for(var i = 0; i < w; i++){
 		board[i] = array_create(h, TILE.none);
@@ -28,11 +30,8 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 			}
 		}
 		ds_list_shuffle(reserve);
-		show_debug_message("before")
-		show_debug_message(ds_list_size(reserve))
+		startCount = ds_list_size(reserve);
 		update();
-		show_debug_message("after")
-		show_debug_message(ds_list_size(reserve))
 	}
 	
 	static click = function(xx,yy){
@@ -42,6 +41,13 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 		_y = 0;
 		var pow = array_length(cluster);
 		if(pow > 1){
+			var c = cluster[0];
+			var t = board[c.xx][c.yy];
+			if(t != TILE.stress){
+				quality += 0.5 * (pow * pow - pow)
+			} else {
+				quality = floor(max(0,quality - 0.25 * (pow * pow - pow)));
+			}
 			for(var i = 0; i < array_length(cluster); i++){
 				cord = cluster[i];
 				var inst = renderBoard[cord.xx][cord.yy];

@@ -38,11 +38,8 @@ sceneScript = [
 		var newAnt = instance_create_layer(1959, room_height + 400, "layer_behind_table", o_antastatia, {image_xscale : -1})
 		newAnt.targetY = 535;
 	}),		
-	setLine(o_antastatia, "Now, should I get a refresher on *HOW TO RUN A BAKERY?*", function(){
-		instance_destroy(oldAnt);
-	}),	
 	setLine(undefined, "", function(){
-		instance_destroy(self);
+		room_goto_next();
 	}),	
 ]
 
