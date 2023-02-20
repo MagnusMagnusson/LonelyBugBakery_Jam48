@@ -115,7 +115,7 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 					}
 				}
 				show_debug_message("Moved one left" + string(xx) + " - " + string(0))
-				xx = ceil(w / 2)+1;
+				xx = ceil(w / 2)-1;
 			}
 		}
 		for(var xx = floor(w / 2); xx > 0; xx--){
@@ -126,7 +126,7 @@ function Board(_w,_h, _x, _y, tileSize) constructor{
 					}
 				}
 				show_debug_message("Moved one right" + string(xx) + " - " + string(0))
-				xx = floor(w / 2)-1;
+				xx = floor(w / 2)+1;
 			}
 		}
 	}
